@@ -13,6 +13,8 @@
 
 @interface BIDSwitchViewController : UIViewController
 
+//note that these aren't really outlets, but pointers to each of the view controllers that
+//we'll be swapping out
 @property (strong, nonatomic) BIDYellowViewController *yellowViewController; 
 @property (strong, nonatomic) BIDBlueViewController *blueViewController;
 
