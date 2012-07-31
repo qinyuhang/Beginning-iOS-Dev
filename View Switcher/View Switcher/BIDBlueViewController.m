@@ -19,6 +19,16 @@
     return self;
 }
 
+- (IBAction)blueButtonPressed 
+{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Blue View Button Pressed"
+                          message:@"You pressed the button on the blue view"
+                          delegate:nil cancelButtonTitle:@"Yep, I did."
+                          otherButtonTitles:nil];
+    [alert show]; 
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
