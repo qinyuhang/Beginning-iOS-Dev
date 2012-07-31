@@ -29,6 +29,9 @@
 
 - (IBAction)switchViews:(id)sender 
 {
+    [UIView beginAnimations:@"View Flip" context:nil]; 
+    [UIView setAnimationDuration:1.25];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     //checks if yellowViewController is superview or doesnt exist(due to memory flush or it was never created)
     //as a result of lazy loading
     if (self.yellowViewController.view.superview == nil) 
@@ -38,6 +41,8 @@
             self.yellowViewController =
             [[BIDYellowViewController alloc] initWithNibName:@"YellowView" bundle:nil]; 
         }
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
         //otherwise, we simply demote blueView and promote yellowView
         [blueViewController.view removeFromSuperview];
         [self.view insertSubview:self.yellowViewController.view atIndex:0];
@@ -51,9 +56,14 @@
             [[BIDBlueViewController alloc] initWithNibName:@"BlueView" bundle:nil];
         }
         
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+        
         [yellowViewController.view removeFromSuperview];
         [self.view insertSubview:self.blueViewController.view atIndex:0];
     } 
+    
+    [UIView commitAnimations];
 }
 
 
