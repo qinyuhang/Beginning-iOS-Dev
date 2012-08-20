@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+//Declaring Outlet for the root view controller for the four different pickers
+@property (strong, nonatomic) IBOutlet UITabBarController *rootController;
+
 @end

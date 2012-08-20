@@ -11,11 +11,18 @@
 @implementation BIDAppDelegate
 
 @synthesize window = _window;
+//Synthesizing getters/setters for Outlet for the root view controller for the four different pickers
+@synthesize rootController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //OJO-Loading the NIB file containing the View Controller
+    [[NSBundle mainBundle] loadNibNamed:@"TabBarController" owner:self options:nil]; 
+    [self.window addSubview:rootController.view];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
